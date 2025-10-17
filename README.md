@@ -6,11 +6,11 @@ This repository provides tools for analyzing microscopy images of biomolecular c
 
 The analysis suite includes:
 * GUI Application (condensate_analysis.py): Interactive parameter optimization and visualization
-*  Workflow Module (adaptive_threshold.py): Batch processing and statistical analysis
+* Workflow Module (adaptive_threshold.py): Batch processing and statistical analysis
 
 ---
 
-Table of Contents
+### Table of Contents
 * Prerequisites and Setup
 * GUI Application
 * Workflow Module
