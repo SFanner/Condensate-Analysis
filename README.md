@@ -2,11 +2,20 @@
 
 ## Adaptive Threshold Condensate Analysis Pipeline
 
-This Python module, condensate_workflow.py, uses adaptive thresholding to segment biomolecular condensates (droplets) in microscopy images and quantify properties like area, condensed fraction, and circularity.
+This repository provides tools for analyzing microscopy images of biomolecular condensates using adaptive thresholding. The pipeline segments droplets and quantifies properties such as area, condensed fraction, and circularity.
 
-It is designed to process data organized by experimental condition, applying specific thresholding parameters to each folder and preparing the results for subsequent statistical analysis.
+The analysis suite includes:
+* GUI Application (condensate_analysis.py): Interactive parameter optimization and visualization
+*  Workflow Module (adaptive_threshold.py): Batch processing and statistical analysis
 
 ---
+
+Table of Contents
+* Prerequisites and Setup
+* GUI Application
+* Workflow Module
+* Data Structure
+* Usage Examples
 
 ### Prerequisites and Setup
 
@@ -14,17 +23,38 @@ To run the analysis, ensure you have the necessary environment and data structur
 
 #### System Requirements
 
-Python 3.x
+* Python 3.7+
+* Recommended: virtual environment for package management.
 
 #### Required Libraries: 
 
-Install the dependencies:
+Install the dependencies using pip:
 
 ```
-pip install numpy pandas opencv-python matplotlib
+pip install numpy pandas opencv-python matplotlib pillow scipy
 ```
 
-#### Data Structure
+For GUI functionality, ensure tkinter is available (typically included with python).
+```
+# Test tkinter installation
+python -m tkinter
+```
+---
+### GUI Application
+
+The GUI (condensate_analysis.py) provides an interactive interface for:
+* Loading single or multichannel microscopy images.
+* Real time parameter adjustment (contrast, block size, brightness).
+* Visual comparison of original, contour, and binary images.
+* Region of interest (ROI) analysis.
+* Parameter sweep PDF generation for batch validation.
+
+#### Launching the GUI
+```
+python condensate_analysis.py
+```
+
+### Data Structure
 
 Microscopy images must be organized into subfolders, with each folder representing a single experimental condition (e.g., a specific concentration).
 
@@ -46,7 +76,7 @@ Microscopy images must be organized into subfolders, with each folder representi
 
 ### Configuration File
 
-The config.json file, placed in the root data directory, specifies the contrast and block_size parameters for adaptive thresholding for each condition folder.
+The config.json file, placed in the root data directory, specifies the contrast and block_size parameters for adaptive thresholding for each condition folder. These values should be determined first using the GUI tool (see next section).
 
 Example config.json:
 
